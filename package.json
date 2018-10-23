@@ -1,11 +1,14 @@
 {
   "name": "puppeteer-pool",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Resource pool for Node.js Puppeteer",
   "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "npm run test:fast",
     "build": "npm run clean && babel ./src --out-dir ./lib --copy-files",
@@ -62,8 +65,9 @@
     }
   },
   "dependencies": {
-    "debug": "^2.3.3",
-    "generic-pool": "^3.1.4",
-    "puppeteer": "^0.10.2"
+    "debug": "^4.1.0",
+    "generic-pool": "^3.4.2",
+    "phantom": "^6.0.3",
+    "puppeteer": "^1.9.0"
   }
 }
