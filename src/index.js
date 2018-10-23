@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer'
 import genericPool from 'generic-pool'
-import initDebug from 'debug'
-const debug = initDebug('puppeteer-pool')
+// import initDebug from 'debug'
+// const debug = initDebug('puppeteer-pool')
 
 const initPuppeteerPool = ({
   max = 10,
@@ -25,10 +25,8 @@ const initPuppeteerPool = ({
     destroy: (instance) => {
       instance.close()
     },
-    validate: (instance) => {
-      return validator(instance)
-        .then(valid => Promise.resolve(valid && (maxUses <= 0 || instance.useCount < maxUses)))
-    },
+    validate: (instance) => validator(instance)
+      .then(valid => Promise.resolve(valid && (maxUses <= 0 || instance.useCount < maxUses))),
   }
   const config = {
     max,
